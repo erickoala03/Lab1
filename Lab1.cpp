@@ -14,7 +14,7 @@ int main() {
   string data;
   string book;
   string number;
-  
+  // set up the variables
   vector<string> name;
   vector<int> num;
  int bring;
@@ -30,8 +30,9 @@ int main() {
   cout << "Enter the column 2 header:" << endl;
   getline(cin, column2);
   cout << "You entered: " << column2 << endl;
-
+//begin adding the data from the input to the strings
   bool start = true;
+  //boolean is to make the data run
   while (start) {
     cout << "Enter a data point (-1 to stop input):" << endl;
     getline(cin, book);
@@ -39,7 +40,10 @@ int main() {
 
     if (book.compare("-1") == 0) {
       start = false;
-    } else if ((book.find(',')) == string::npos) {
+      //-1 is used to end the whie loop
+    }
+    // this check for any erros
+    else if ((book.find(',')) == string::npos) {
       cout << "Error: No comma in string." << endl;
     } else if (count(book.begin(), book.end(), ',') > 1) {
       cout << "Error: Too many commas in input." << endl;
@@ -54,6 +58,7 @@ int main() {
             num.push_back(bring);
             name.push_back(title);
         } catch (const std::invalid_argument& e) {
+      //this make sure to see if a comma added 
             cout << "Error: Comma not followed by an integer." << endl;
         }
 
@@ -62,6 +67,7 @@ int main() {
   cout << endl;
   
   //this where the adding data ends.
+  //and then we start setting up the data visualization
    cout << std::right<< setw(33) << heading << endl;
   cout << std::left << std::setw(20) << column1 << "|" << std::right <<
   std::setw(23)  << column2 << std::endl;
